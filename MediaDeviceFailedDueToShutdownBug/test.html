@@ -1,0 +1,15 @@
+<html><head><script type='text/javascript'>
+navigator.webkitGetUserMedia({video:true}, function(ms) {
+    document.write('success<br>');
+    ms.stop();
+}, function(err) {
+    document.write('err ' + err.name + '<br>');
+});
+
+window.setTimeout(function() {
+    document.write('Updating state without reloading<br>');
+    window.history.replaceState({},'',window.location.href + '/garbageUrlShouldNotReloadAnything');
+    document.write('Updated state without reloading<br>');
+}, 1000);
+</script></head><body>
+</body></html>
